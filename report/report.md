@@ -1,13 +1,36 @@
 
 # Capstone Project
 ## Machine Learning Engineer Nanodegree
-Joe Udacity  
-December 31st, 2050
+```
+Miroslav Karpis (miroslav.karpis@gmail.com)
+August 5th 2016
+```
 
 ## I. Definition
-_(approx. 1-2 pages)_
+(approx. 1-2 pages)
 
 ### Project Overview
+Goal of this project is to build a social image description platform. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own.
+
+The platform can be divided into following parts:
+* **User application** - users will be able to access the application from their mobile phones or tablets (implemented in cross platform environment).
+
+* **Datastore** - database where all the user images will be stored together with their learned labels.
+
+* **Server application** - application where most of machine learning logic will be implemented
+
+
+Below are prototype images form the mobile application.
+<tr>
+    <td> <img src="/images/proto_1.png" width="280"/>  </td>
+    <td> <img src="/images/proto_4.png" width="286"/>  </td>
+</tr>
+
+On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval).
+
+-------------
+
+
 In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
 - _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
 - _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
@@ -17,6 +40,27 @@ In this section, you will want to clearly define the problem that you are trying
 - _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
 - _Have you thoroughly discussed how you will attempt to solve the problem?_
 - _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
+
+Build a social image description platform. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own.
+You can use one of (or a combination of) several different methods to gather features from images, including (but not limited to):
+Visual Bag of Words
+Gist
+SIFT, SURF or other local feature descriptors
+Shape Context
+For labeling, you can treat a description as a simple bag-of-words. A more advanced model could parse the description string entered by a user to understand sentence structure and semantics, and later generate descriptions that sound natural.
+
+Choose a target platform (desktop/web/Android/iOS), and design your overall application. Describe it as if you are building a proof-of-concept product, complete with user interface design (very simple mockups will do), intended scope, features.
+Explain clearly the computer vision/machine learning component within your application, including the inputs, desired outputs and some algorithms that you are considering.
+Build the user-facing of the system first, including a means to upload an image, show unlabeled images in a user’s stream/homepage, and store descriptions that are entered.
+Add screenshots of the system to your report explain usage scenarios and flows.
+Prepare a dataset for training and testing, so that you can repeatedly (and reliably) measure the performance of your system. You can use the system built so far to generate this dataset (perhaps with some help from your friends?!).
+Include statistics about your dataset in the report (no. of image, train-test split, etc.).
+Now implement and test your image-description matching algorithm.
+What computer vision and/or machine learning techniques did you use? What metric are you using to compare the predicted descriptions with the human-labeled ones?
+Complete and improve your application by implementing any additional features.
+What does your final system do, and how different is it from the system you initially conceived? How well does it perform on seen vs. unseen examples?
+
+
 
 ### Metrics
 In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
