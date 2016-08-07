@@ -33,8 +33,8 @@ The platform can be divided into following parts:
 Below are prototype images form the mobile application.
 
 <tr>
-    <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_1.png" width="280"/>  </td>
-    <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_4.png" width="286"/>  </td>
+    <td> <img src="images/proto_1.png" width="280"/>  </td>
+    <td> <img src="images/proto_4.png" width="286"/>  </td>
 </tr>
 
 On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval).
