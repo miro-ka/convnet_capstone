@@ -31,6 +31,7 @@ The platform can be divided into following parts:
 
 
 Below are prototype images form the mobile application.
+
 <tr>
     <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_1.png" width="280"/>  </td>
     <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_4.png" width="286"/>  </td>
