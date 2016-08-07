@@ -12,6 +12,16 @@ August 5th 2016
 ### Project Overview
 Goal of this project is to build a social image description platform. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own.
 
+Main application features will be:
+* Recognize objects from the image
+* Share unlabeled images among users and allow them to describe them
+
+Possible application uses in the future:
+* Hluchonemich
+* **Translator** - Speak aloud the detected object name and allow user to change the audio and text language 
+* children educational application
+
+
 The platform can be divided into following parts:
 * **User application** - users will be able to access the application from their mobile phones or tablets (implemented in cross platform environment).
 
@@ -22,8 +32,8 @@ The platform can be divided into following parts:
 
 Below are prototype images form the mobile application.
 <tr>
-    <td> <img src="/images/proto_1.png" width="280"/>  </td>
-    <td> <img src="/images/proto_4.png" width="286"/>  </td>
+    <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_1.png" width="280"/>  </td>
+    <td> <img src="https://github.com/mkarpis/kukuk/blob/master/report/images/proto_4.png" width="286"/>  </td>
 </tr>
 
 On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval).
@@ -77,6 +87,15 @@ In this section, you will be expected to analyze the data you are using for the 
 - _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
 - _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
 - _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
+
+Similar API
+ * [clarifai](https://www.clarifai.com)
+
+Data sources:
+ * [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
+ * [Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
+ 
+ 
 
 ### Exploratory Visualization
 In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
@@ -157,6 +176,9 @@ In this section, you will need to provide discussion as to how one aspect of the
 - _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
 - _If you used your final solution as the new benchmark, do you think an even better solution exists?_
 
+
+Citations/sources:
+* M. Hodosh, P. Young and J. Hockenmaier (2013) "Framing Image Description as a Ranking Task: Data, Models and Evaluation Metrics", Journal of Artificial Intelligence Research, Volume 47, pages 853-899 http://www.jair.org/papers/paper3994.html when discussing our results
 -----------
 
 **Before submitting, ask yourself. . .**
