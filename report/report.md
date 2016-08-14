@@ -10,47 +10,75 @@ August 5th 2016
 (approx. 1-2 pages)
 
 ### Project Overview
-Goal of this project is to build a social image description platform. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own.
 
-Main application features will be:
-* Recognize objects from the image
-* Share unlabeled images among users and allow them to describe them
-
-Possible application uses in the future:
-* Hluchonemich
-* **Translator** - Speak aloud the detected object name and allow user to change the audio and text language 
-* children educational application
+> In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
+- _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
+- _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
 
 
-The platform can be divided into following parts:
-* **User application** - users will be able to access the application from their mobile phones or tablets (implemented in cross platform environment).
+Goal of this project is to build a social image description platform using deep learning. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own. Additionally will be the platform also trained with currently available labeled images (for example Flickr8, Flickr30).
 
-* **Datastore** - database where all the user images will be stored together with their learned labels.
+For a human it takes very little time to recognize, categorize and correctly name an object from an image. For a computer this problem is much more complicated, because of the objects can be for example rotated, have different sizes, colors or can be partially hiding another object. Currently one of the most used technique for identifying objects from images is deep learning. 
 
-* **Server application** - application where most of machine learning logic will be implemented
+With this project the author will try to broader his knowledge within this field and create an application that can be used in different fields. As an example below are some possible use-cases, where the application could be beneficial:
+* **Object description for blind people**: Blind person will hold a phone camera which will send facing image to the projects server, and say aloud objects that are in front of the person.
+
+* **Translator**: User will take a picture of an object and the application will return name of the object in selected language (or several languages).
 
 
-Below are prototype images form the mobile application.
+### Problem Statement
+>In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
+- _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
+- _Have you thoroughly discussed how you will attempt to solve the problem?_
+- _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
+
+Application is a social image description platform, that will consists of following parts:
+* User application / interface
+* Datastore
+* Server application
+
+
+#### User application / interface
+Users will interface social image description platform via mobile application. To achieve a cross-platform mobile application, for development is selected [Ionic platform](https://ionic.io). Ionic platform is a cross platform that contains all of the required functionalities for this project and good test environment. Application is coded in html5 so there will minimum work required to port the application to web application. 
+
+The mobile application will have following main functionalities:
+* Take a picture with camera and send it to server
+* Receive returned labels for sent image
+* Receive a list of non-labeled images
+* Allow user to label and send to server received non-labeled images
+* Planned but not guaranteed features
+ * Play aloud name of the returned objects (Text to Speech)
+
+
+To give a better idea about the project, below are some draft prototype images of the user mobile application interface.
 
 <tr>
     <td> <img src="images/proto_1.png" width="280"/>  </td>
     <td> <img src="images/proto_4.png" width="286"/>  </td>
 </tr>
 
-On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval).
+_Picture 1 & 2: On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval)._
+
+
+### Datastore
+All the images received from the users needs to be stored for immediate and future training purpose. Images will be transferred and stored as PNG format in a filesystem store. Below is a brief architecture diagram, which shows the main information data flow.
+
+<img src="images/kukuk_overall.png"/>
+
+-------------
+
+# TODO
 
 -------------
 
 
-In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
-- _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
-- _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
 
-### Problem Statement
-In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
-- _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
-- _Have you thoroughly discussed how you will attempt to solve the problem?_
-- _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
+
+### Server application
+application where most of machine learning logic will be implemented
+
+
+
 
 Build a social image description platform. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own.
 You can use one of (or a combination of) several different methods to gather features from images, including (but not limited to):
@@ -178,8 +206,18 @@ In this section, you will need to provide discussion as to how one aspect of the
 - _If you used your final solution as the new benchmark, do you think an even better solution exists?_
 
 
+-----------
+
+Possible application uses in the future:
+* **Translator** - Speak aloud the detected object name and allow user to change the audio and text language 
+* Help for 
+* children educational application
+
+
 Citations/sources:
 * M. Hodosh, P. Young and J. Hockenmaier (2013) "Framing Image Description as a Ranking Task: Data, Models and Evaluation Metrics", Journal of Artificial Intelligence Research, Volume 47, pages 853-899 http://www.jair.org/papers/paper3994.html when discussing our results
+* [Flickr8 Flickr30 datasets](http://cs.stanford.edu/people/karpathy/deepimagesent/)
+
 -----------
 
 **Before submitting, ask yourself. . .**
