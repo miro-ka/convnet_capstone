@@ -76,6 +76,7 @@ All the images received from the users needs to be stored for immediate and futu
 As a programming language will be chosen Python 2.7 or above. Main reason for selecting Python as a programming language for the datastore communication application is a technical requirement from Udacity. As a database will be used sqlite for its simplicity and relatively fast implementation.
 
 <img src="images/kukuk_overall.png"/>
+Picture 3: Basic User, server and datastore flow diagra
 
 
 #### Server Application
@@ -117,6 +118,8 @@ To be able to measure the performance of our application we will group our measu
 
 3. **Measure the performance of our data flow**: Important metric for our performance measurement will be the time between the moment when the sends image to the server and the time the user will receive reply from the server. 
 
+As an additional metric for our model can be used results from similar commercial product from 
+[clarifai](https://www.clarifai.com).
 
 
 ## II. Analysis
@@ -130,12 +133,55 @@ To be able to measure the performance of our application we will group our measu
 - _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
 - _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
 
+Data used within the application can be divided into following groups
+
+1. **Data used for model and system training:** Image data used during the model training and system optimization
+
+2. **Image data from users:** Image data received from the user during the application life-cycle
+
+3. **Post-trained image data:** New datasets that will be discovered after the model is trained. 
 
 
+#### Data used for model and system training
+Data that will be used for model training and also for testing the entire system architecture will be one of the most important element in our data exploration. 
+
+For system architecture test it will be very important to monitor overall speed of the application flow - from the moment when user will send image to the server until the moment will receive labeled data back. 
+
+Within this process will be included following major operations:
+* Input image pre-processing
+
+* Deep learning model application
+
+* Response / Reply to clients application
+
+All of these operations will need to be carefully tested, measured and analyzed for the sake of relatively fast and stable system (as mentioned earlier this is only proof of concept, where only limited processing resources are available).
 
 
+Nowadays we have available many labeled image datasets that are available mostly for non-commercial research and/or educational purposes. For our training model, I will use data from following sources:
+
+ * [flickr8k](https://illinois.edu/fb/sec/1713398) and [flickr30k](http://shannon.cs.illinois.edu/DenotationGraph/): The Flickr 8K dataset includes images obtained from the “flickr” website.
+ 
+ * [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html): Dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class.
+ 
+ * [Caltech 101](http://www.vision.caltech.edu/Image_Datasets/Caltech101/): Pictures of objects belonging to 101 categories. About 40 to 800 images per category
 
 
+#### Image data from users
+Image data received from users will be forwarded to our labeling deep learning model, where the model will try to assign correct model. If the prediction probability will be small the image will be forwarded to _label queue_, where images will be sent to users and wait for their labeled feedback.
+
+<img src="images/image_queue_flow.png"/>
+Picture 4: Simple data flow between the user input, our predictive social network and user labeling feedback.
+
+#### Post-trained image data
+Occasionally new datasets might be available to public. In those cases it could be useful to use these new datasets and feed our predictive network to enhance its prediction score.
+ 
+ 
+
+### Exploratory Visualization
+> In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
+- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
+- _Is the visualization thoroughly analyzed and discussed?_
+- _If a plot is provided, are the axes, title, and datum clearly defined?_
 
 
 
@@ -149,21 +195,6 @@ To be able to measure the performance of our application we will group our measu
 
 
 
-
-Similar API
- * [clarifai](https://www.clarifai.com)
-
-Data sources:
- * [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
- * [Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
- 
- 
-
-### Exploratory Visualization
-> In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
-- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
-- _Is the visualization thoroughly analyzed and discussed?_
-- _If a plot is provided, are the axes, title, and datum clearly defined?_
 
 ### Algorithms and Techniques
 > In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
