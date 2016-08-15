@@ -59,10 +59,13 @@ The mobile application will have following main functionalities:
 
 To give a better idea about the project, below are some draft prototype images of the user mobile application interface.
 
+<p align="center">
 <tr>
     <td> <img src="images/proto_1.png" width="280"/>  </td>
     <td> <img src="images/proto_4.png" width="286"/>  </td>
 </tr>
+</p>
+
 
 _Picture 1 & 2: On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval)._
 
