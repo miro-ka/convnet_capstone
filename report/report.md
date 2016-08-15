@@ -7,7 +7,7 @@ August 5th 2016
 ```
 
 ## I. Definition
-(approx. 1-2 pages)
+> _(approx. 1-2 pages)_
 
 ### Project Overview
 
@@ -16,7 +16,7 @@ August 5th 2016
 - _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
 
 
-Goal of this project is to build a social image description platform using deep learning. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own. Additionally will be the platform also trained with currently available labeled images (for example Flickr8, Flickr30).
+Goal of this project is to build a proof of concept for social image description platform using deep learning. Users can upload an image that they would like to have described, the image is then surfaced in other users’ streams and one or more users describe it. Over time, the system learns associations between words used to describe an image and the visual features found in it, and gets better at predicting descriptions on its own. Additionally will be the platform also trained with currently available labeled images (for example Flickr8, Flickr30).
 
 For a human it takes very little time to recognize, categorize and correctly name an object from an image. For a computer this problem is much more complicated, because of the objects can be for example rotated, have different sizes, colors or can be partially hiding another object. Currently one of the most used technique for identifying objects from images is deep learning. 
 
@@ -33,20 +33,27 @@ With this project the author will try to broader his knowledge within this field
 - _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
 
 Application is a social image description platform, that will consists of following parts:
-* User application / interface
+* User application / User interface
+
 * Datastore
+
 * Server application
 
 
-#### User application / interface
+#### User application / User interface
 Users will interface social image description platform via mobile application. To achieve a cross-platform mobile application, for development is selected [Ionic platform](https://ionic.io). Ionic platform is a cross platform that contains all of the required functionalities for this project and good test environment. Application is coded in html5 so there will minimum work required to port the application to web application. 
 
 The mobile application will have following main functionalities:
 * Take a picture with camera and send it to server
+
 * Receive returned labels for sent image
+
 * Receive a list of non-labeled images
+
 * Allow user to label and send to server received non-labeled images
+
 * Planned but not guaranteed features
+
  * Play aloud name of the returned objects (Text to Speech)
 
 
@@ -60,10 +67,74 @@ To give a better idea about the project, below are some draft prototype images o
 _Picture 1 & 2: On the left side is an user camera image together with object detection and their predicted labels. On the right side is a list of images that have been only label with machine learning algorithm and are waiting user feedback (approval)._
 
 
-### Datastore
-All the images received from the users needs to be stored for immediate and future training purpose. Images will be transferred and stored as PNG format in a filesystem store. Below is a brief architecture diagram, which shows the main information data flow.
+#### Datastore
+All the images received from the users needs to be stored for immediate and future training purpose. Images will be transferred and stored as PNG format in a filesystem store. Below is a brief architecture diagram, which shows the main information data flow. 
+
+As a programming language will be chosen Python 2.7 or above. Main reason for selecting Python as a programming language for the datastore communication application is a technical requirement from Udacity. As a database will be used sqlite for its simplicity and relatively fast implementation.
 
 <img src="images/kukuk_overall.png"/>
+
+
+#### Server Application
+Server application will be the main processing part, where most of the platforms logic will be implemented. The server will provide following services to the social image description platform:
+* Communicate with mobile clients:
+
+ * Receive image
+ 
+ * Send labels for image
+ 
+ * Send to client list of non-labeled images
+ 
+ * Receive from clients labeled images
+ 
+* Validate received image (validate if the resolution and image format are correct)
+
+* Normalize received image
+
+* Train machine learning model
+
+* Query machine learning model with newly received image
+
+* Query Datastore for image retrieval and storage
+
+As a programming language will be chosen Python 2.7 or above. Main reason for selecting Python as a programming language for the datastore communication application is a technical requirement from Udacity and available machine learning libraries. For the machine learning library will be used [TensorFlow - Open Source Software Library for Machine Learning](https://www.tensorflow.org).
+
+
+
+### Metrics
+> In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
+- _Are the metrics you’ve chosen to measure the performance of your models clearly discussed and defined?_
+- _Have you provided reasonable justification for the metrics chosen based on the problem and solution?_
+
+To be able to measure the performance of our application we will group our measurement metrics into following groups:
+
+1. **Measure performance of our trained model**: To be able to measure the accuracy of our trained model we will have available one of the feature of our application, where the users can receive a list of images with their predicted labels, and give them labels which user thinks are correct. With this functionality we will be able to randomly send to the social network also trained images and measure the occurrences when the user corrected the label. 
+ 
+2. **Measure the performance of models training necessity to ask users to label images**
+
+3. **Measure the performance of our data flow**: Important metric for our performance measurement will be the time between the moment when the sends image to the server and the time the user will receive reply from the server. 
+
+
+
+## II. Analysis
+> _(approx. 2-4 pages)_
+
+### Data Exploration
+
+> In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
+- _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
+- _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
+- _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
+- _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
+
+
+
+
+
+
+
+
+
 
 -------------
 
@@ -74,9 +145,33 @@ All the images received from the users needs to be stored for immediate and futu
 
 
 
-### Server application
-application where most of machine learning logic will be implemented
 
+
+Similar API
+ * [clarifai](https://www.clarifai.com)
+
+Data sources:
+ * [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
+ * [Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
+ 
+ 
+
+### Exploratory Visualization
+> In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
+- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
+- _Is the visualization thoroughly analyzed and discussed?_
+- _If a plot is provided, are the axes, title, and datum clearly defined?_
+
+### Algorithms and Techniques
+> In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
+- _Are the algorithms you will use, including any default variables/parameters in the project clearly defined?_
+- _Are the techniques to be used thoroughly discussed and justified?_
+- _Is it made clear how the input data or datasets will be handled by the algorithms and techniques chosen?_
+
+### Benchmark
+> In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
+- _Has some result or value been provided that acts as a benchmark for measuring performance?_
+- _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
 
 
 
@@ -101,47 +196,8 @@ What does your final system do, and how different is it from the system you init
 
 
 
-### Metrics
-In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
-- _Are the metrics you’ve chosen to measure the performance of your models clearly discussed and defined?_
-- _Have you provided reasonable justification for the metrics chosen based on the problem and solution?_
 
 
-## II. Analysis
-_(approx. 2-4 pages)_
-
-### Data Exploration
-In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
-- _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
-- _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
-- _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
-- _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
-
-Similar API
- * [clarifai](https://www.clarifai.com)
-
-Data sources:
- * [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
- * [Caltech-UCSD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
- 
- 
-
-### Exploratory Visualization
-In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
-- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
-- _Is the visualization thoroughly analyzed and discussed?_
-- _If a plot is provided, are the axes, title, and datum clearly defined?_
-
-### Algorithms and Techniques
-In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
-- _Are the algorithms you will use, including any default variables/parameters in the project clearly defined?_
-- _Are the techniques to be used thoroughly discussed and justified?_
-- _Is it made clear how the input data or datasets will be handled by the algorithms and techniques chosen?_
-
-### Benchmark
-In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
-- _Has some result or value been provided that acts as a benchmark for measuring performance?_
-- _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
 
 
 ## III. Methodology
