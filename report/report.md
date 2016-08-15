@@ -75,8 +75,11 @@ All the images received from the users needs to be stored for immediate and futu
 
 As a programming language will be chosen Python 2.7 or above. Main reason for selecting Python as a programming language for the datastore communication application is a technical requirement from Udacity. As a database will be used sqlite for its simplicity and relatively fast implementation.
 
-<img src="images/kukuk_overall.png"/>
-Picture 3: Basic User, server and datastore flow diagra
+<p align="center">
+<img src="images/kukuk_overall.png" width="560"/>
+<p>
+
+Picture 3: Basic User, server and datastore flow diagram
 
 
 #### Server Application
@@ -169,7 +172,10 @@ Nowadays we have available many labeled image datasets that are available mostly
 #### Image data from users
 Image data received from users will be forwarded to our labeling deep learning model, where the model will try to assign correct model. If the prediction probability will be small the image will be forwarded to _label queue_, where images will be sent to users and wait for their labeled feedback.
 
-<img src="images/image_queue_flow.png"/>
+<p align="center">
+<img src="images/image_queue_flow.png" width="560"/>
+<p>
+
 Picture 4: Simple data flow between the user input, our predictive social network and user labeling feedback.
 
 #### Post-trained image data
