@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ## About ##
-kukuk is a Social Image Description Platform using deep learning for image recognition. Project started as my final assignment for my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/kukuk/blob/master/report/report.md).
+kukuk is a Social Image Description Platform using deep learning for image recognition. Project started as my final assignment for my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/kukuk/blob/master/report/report.ipynb).
 
 
 
