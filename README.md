@@ -9,7 +9,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ## About ##
-Image Description using Deep Learning is a project for my final assignment of my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/convnet_capstone/blob/master/Report.ipynb).
+Image Description using Deep Learning is a project for my final assignment of my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/convnet_capstone/blob/master/project_report.ipynb).
 
 
 
