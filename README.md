@@ -1,6 +1,4 @@
-# kukuk: Social Image Description Platform
-
-<img src="images/wip.png" width="120"/>
+# Image Description using Deep Learning (Convolutional Neural Network)
 
 
 ## License ##
@@ -11,9 +9,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ## About ##
-kukuk is a Social Image Description Platform using deep learning for image recognition. Project started as my final assignment for my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/kukuk/blob/master/report/report.ipynb).
+Image Description using Deep Learning is a project for my final assignment of my Machine Learning Udaciy Engineer Nanodegree. You can see the projects detail report [here](https://github.com/mkarpis/convnet_capstone/blob/master/Report.ipynb).
 
 
 
 ## Bugs & Feature requests ##
-Please log all bugs and feature requests to the githubs [Issues Tracker](https://github.com/mkarpis/kukuk/issues) 
+Please log all bugs and feature requests to the githubs [Issues Tracker](https://github.com/mkarpis/convnet_capstone/issues) 
